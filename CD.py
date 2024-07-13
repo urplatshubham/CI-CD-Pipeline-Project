@@ -1,30 +1,22 @@
 import requests
 
-# GitHub repository information
-username = 'urplatshubham'
-repo_name = 'CI-CD-Pipeline-Project'
-access_token = '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'  # Generate a personal access token from GitHub
+def get_commit_count(owner, repo):
+    url = f"https://api.github.com/repos/{owner}/{repo}/commits"
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        commits = response.json()
+        return len(commits)
+    else:
+        print(f"Error: Unable to fetch commits (Status Code: {response.status_code})")
+        return None
 
-# API endpoint for getting repository stats
-api_url = f'https://api.github.com/repos/{username}/{repo_name}/stats/participation'
+if __name__ == "__main__":
+    owner = "urplatshubham"  
+    repo = "CI-CD-Pipeline-Project"  
 
-# Headers with Authorization using access token
-headers = {
-    'Authorization': f'token {access_token}',
-    'Accept': 'application/vnd.github.v3+json'
-}
+    commit_count = get_commit_count(owner, repo)
+    
+    if commit_count is not None:
+        print(f"The number of commits in the repository '{repo}' is: {commit_count}")
 
-try:
-    # Fetch repository stats from GitHub
-    response = requests.get(api_url, headers=headers)
-    response.raise_for_status()  # Raise an exception for bad responses
-
-    stats = response.json()
-
-    # Calculate total commits
-    total_commits = sum(stats['all'])
-
-    print(f"Total commits in {repo_name}: {total_commits}")
-
-except requests.exceptions.RequestException as e:
-    print(f"Error fetching repository stats: {e}")

@@ -18,7 +18,7 @@ if __name__ == "__main__":
     commits = get_commit_count(owner, repo)
     
     if commits is not None:
-        print(f"The number of commits in the repository '{repo}' is: {len(commits)}")
+        print(f"The number of commits in the repository '{repo}' is: {len(commits)}\n")
         for commit in commits:
             print(f"Commit ID: {commit['sha']} \n Message: {commit['commit']['message']}\n")
 

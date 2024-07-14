@@ -62,7 +62,7 @@ Supports customization through configuration of the GitHub repository details.
 2. Verify the HTML output at `http://localhost/commits.html`.
 
 ### Configuration
-- `commit_counter.py`: Modify the script to set your GitHub repository details.
+- `CD.py`: Modify the script to set your GitHub repository details.
 
     ```python
     owner = "your-github-username"  # Replace with your GitHub username

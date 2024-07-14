@@ -1,4 +1,4 @@
-# Project Name
+# CICD-Project
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)
@@ -16,7 +16,9 @@
 - [Contact](#contact)
 
 ## Project Description
-This project is a Python script designed to fetch and count commits from a specified GitHub repository. It generates an HTML report detailing each commit's ID and message. The script utilizes the GitHub API to retrieve commit data, processes it to extract relevant information, and formats it into an HTML file. This report serves as a convenient summary of repository activity, useful for project management and tracking development progress over time.
+This project is a Python script designed to fetch and count commits from a specified GitHub repository. It generates an HTML report detailing each commit's ID and message. The script utilizes the GitHub API to retrieve commit data, processes it to extract relevant information, and formats it into an HTML file. This report serves as a convenient summary of repository activity, useful for project management and tracking development progress over time. Users can run the script manually to generate the HTML report. Additionally, the script can be scheduled to run periodically using cron, automating the process of updating and maintaining commit records.
+
+This project is suitable for developers and project managers who need a straightforward tool for tracking commit history and analyzing repository activity visually.
 
 ## Features
 Fetches commit data using the GitHub API.
@@ -95,8 +97,3 @@ Supports customization through configuration of the GitHub repository details.
 To check if the cron job is running, inspect the logs:
 ```bash
 grep CRON /var/log/syslog
-
-### Intended Users
-Users can run the script manually to generate the HTML report. Additionally, the script can be scheduled to run periodically using cron, automating the process of updating and maintaining commit records.
-
-This project is suitable for developers and project managers who need a straightforward tool for tracking commit history and analyzing repository activity visually.
